@@ -1,0 +1,387 @@
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px; /* Fixed width */
+    background-color: #4a90e2; /* Beautiful blue color */
+    padding: 20px; /* Inner spacing */
+    display:list-item;
+    flex-direction:row-reverse; /* Stack items vertically */
+    height: 1230px; /* Full height */
+    color: white; /* Text color */
+}
+
+/* Logo styling */
+.logo {
+    font-size: 24px; /* Larger font for the logo */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Centered */
+    margin-bottom: 30px; /* Spacing below logo */
+}
+
+/* Navigation styles */
+.nav {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    flex-grow: 1; /* Allow nav to grow */
+}
+
+.nav li {
+    padding: 15px 10px; /* Padding around each item */
+    transition: background-color 0.3s; /* Smooth background transition */
+    border-radius: 5px; /* Slight rounding */
+    display: flex; /* Use flexbox for icon and text alignment */
+    align-items: center; /* Center vertically */
+    margin-bottom: 100px; /* Space between items */
+}
+
+.nav li.active {
+    background-color: rgba(220, 200, 18, 0.799); /* Highlight active item */
+}
+
+.nav li:hover {
+    background-color: rgb(230, 222, 6); /* Light hover effect */
+}
+
+.nav li i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 20px; /* Icon size */
+}
+
+/* Link styling */
+.nav li a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    flex: 1; /* Allow link to fill space */
+}
+
+/* User profile styling */
+.user-profile {
+    text-align: center; /* Center the profile */
+}
+
+.profile-pic {
+    width: 50px; /* Fixed size */
+    height: 50px; /* Fixed size */
+    border-radius: 50%; /* Circular profile picture */
+    overflow: hidden; /* Hide overflow */
+    margin: 20px auto; /* Center */
+}
+
+.profile-pic img {
+    width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.user-name {
+    display: block; /* Block for spacing */
+    margin-top: 10px; /* Space above username */
+    font-size: 16px; /* Font size for username */
+}
+
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.search-bar {
+    position: relative;
+}
+
+.search-bar input {
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+
+.card-carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 30px;
+    height: 200px; /* Adjusted to match card height */
+}
+
+.card {
+    width: 300px;
+    height: 200px;
+    border-radius: 15px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    margin-right: -100px;
+    transition: transform 0.5s ease, margin-right 0.5s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+    position: relative; /* For z-index control */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Initial shadow */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+    margin-right: 30px; /* Space out when hovered */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+    z-index: 1; /* Bring the hovered card to the front */
+}
+
+.card.active {
+    transform: scale(1.1);
+    margin-right: 30px;
+}
+
+.card-details {
+    text-align: left;
+}
+
+.card-type {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.card-number {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.card-expiry {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    text-align: right;
+    color: white;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+
+.widget.balance h2 {
+    color: #00C853;
+}
+
+.widget .transfer-button {
+    background-color: #2962FF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.widget .transfer-button:hover {
+    background-color: #0039cb;
+}
+
+.currency {
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+}
+/* General widget styles */
+.widget {
+    background-color: #f9f9f9; /* Light background color */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the widget */
+    margin: 20px 0; /* Margin between widgets */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Heading styles */
+.widget h3 {
+    font-size: 1.5em; /* Larger font for headings */
+    color: #333; /* Dark color for text */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+/* Styles for the transaction list */
+#transactionsList {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+/* Individual transaction list items */
+#transactionsList li {
+    background-color: #fff; /* White background for list items */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside list items */
+    margin-bottom: 10px; /* Space between items */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between text and amount */
+    align-items: center; /* Center items vertically */
+}
+
+/* Highlight positive and negative amounts */
+#transactionsList li:has(span.deposit) {
+    color: #28a745; /* Green for deposits */
+}
+
+#transactionsList li:has(span.withdrawal) {
+    color: #dc3545; /* Red for withdrawals */
+}
+
+/* Style for the amount spans */
+.amount {
+    font-weight: bold; /* Bold font for amounts */
+}
+/* Basic styling for the widget container */
+.widget.quick-transfer {
+    background-color: #ffffff; /* White background for a clean look */
+    border: 1px solid #e0e0e0; /* Light border for separation */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Inner spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    max-width: 400px; /* Limit width for better layout */
+    margin: 20px auto; /* Center the widget horizontally */
+}
+
+/* Heading styling */
+.widget.quick-transfer h3 {
+    font-size: 24px; /* Larger font for the heading */
+    color: #333; /* Dark color for text */
+    margin-bottom: 15px; /* Spacing below the heading */
+    text-align: center; /* Center the heading */
+}
+
+/* Input field styling */
+.widget.quick-transfer input[type="text"],
+.widget.quick-transfer input[type="number"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px; /* Inner spacing */
+    margin-bottom: 15px; /* Spacing between inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Slightly rounded corners */
+    font-size: 16px; /* Font size for readability */
+}
+
+/* Currency span styling */
+.widget.quick-transfer .currency {
+    display: inline-block; /* Inline block to align with input */
+    margin-bottom: 15px; /* Spacing below currency */
+    font-size: 16px; /* Font size to match inputs */
+}
+
+/* Button styling */
+.widget.quick-transfer .transfer-button {
+    background-color: #4caf50; /* Green background for the button */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Inner spacing */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+    width: 100%; /* Full width */
+}
+
+/* Button hover effect */
+.widget.quick-transfer .transfer-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Icon styling (optional, if you have a specific icon font) */
+.widget.quick-transfer .icon-send {
+    margin-right: 5px; /* Spacing between icon and text */
+}
+/* Widget container styling */
+.widget.financial-record {
+    background-color: #ffffff; /* White background for contrast */
+    border: 1px solid #e0e0e0; /* Light border for separation */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Inner spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    width: 400px; /* Limit width to prevent expansion */
+    margin: 20px auto; /* Center the widget horizontally */
+}
+
+/* Heading styling */
+.widget.financial-record h3 {
+    font-size: 20px; /* Font size for the heading */
+    color: #333; /* Dark color for text */
+    margin-bottom: 15px; /* Spacing below the heading */
+    text-align: center; /* Center the heading */
+}
+
+/* Record item styling */
+.record-item {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between label and value */
+    padding: 10px 0; /* Padding for each item */
+    border-bottom: 1px solid #e0e0e0; /* Divider line */
+}
+
+.record-item:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+/* Record item label styling */
+.record-item span {
+    font-size: 16px; /* Font size for labels */
+    color: #555; /* Dark gray for labels */
+}
+
+/* Record item value styling */
+.record-item span:last-child {
+    font-weight: bold; /* Bold for values */
+    color: #4caf50; /* Green color for values */
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+    .widget.financial-record {
+        max-width: 100%; /* Full width on smaller screens */
+        padding: 10px; /* Reduced padding */
+    }
+
+    .record-item span {
+        font-size: 14px; /* Smaller font size on mobile */
+    }
+}

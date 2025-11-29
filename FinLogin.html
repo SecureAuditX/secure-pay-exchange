@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fincryptix.com</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="LoginStyle.css">
+</head>
+<body>
+    <div class="container">
+        <form id="signupForm">
+            <fieldset style="width:450px; height:600px">
+                <h1>Welcome To FincryptiX Bank</h1>
+                <h2 style="text-align:center;">Sign Up</h2>
+
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname">
+                <span id="fullname-error" class="error"></span><br/>
+
+                <label for="username">UserName:</label>
+                <input type="text" id="username" name="username">
+                <span id="username-error" class="error"></span><br/>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <span id="email-error" class="error"></span><br/>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <span id="password-error" class="error"></span><br/>
+
+                <label for="re-password">Re-Password:</label>
+                <input type="password" id="re-password" name="re-password">
+                <span id="re-password-error" class="error"></span><br/>
+
+                <label for="gender">Gender:</label>
+                <input type="radio" id="male" name="gender" value="male"> Male
+                <input type="radio" id="female" name="gender" value="female"> Female
+                <span id="gender-error" class="error"></span><br/>
+
+                <label for="phonenumber">Phone Number:</label>
+                <input type="number" id="phonenumber" name="phonenumber" size="11" maxlength="14">
+                <span id="phonenumber-error" class="error"></span><br/>
+
+                <label for="recovered-email">Recovered Email:</label>
+                <input type="email" id="recovered-email" name="recovered-email">
+                <span id="recovered-email-error" class="error"></span><br/>
+
+                <button type="submit">Sign In</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            // Prevent form submission
+            event.preventDefault();
+
+            // Clear previous error messages
+            const errorElements = document.querySelectorAll('.error');
+            errorElements.forEach(el => el.textContent = '');
+
+            // Get form values
+            const fullname = document.getElementById('fullname').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const rePassword = document.getElementById('re-password').value.trim();
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const phonenumber = document.getElementById('phonenumber').value.trim();
+            const recoveredEmail = document.getElementById('recovered-email').value.trim();
+
+            // Validation flags
+            let isValid = true;
+
+            // Validate Full Name
+            if (fullname === '') {
+                document.getElementById('fullname-error').textContent = 'Full Name is required.';
+                isValid = false;
+            }
+
+            // Validate Username
+            if (username === '') {
+                document.getElementById('username-error').textContent = 'Username is required.';
+                isValid = false;
+            }
+
+            // Validate Email
+            if (email === '') {
+                document.getElementById('email-error').textContent = 'Email is required.';
+                isValid = false;
+            }
+
+            // Validate Password
+            if (password === '') {
+                document.getElementById('password-error').textContent = 'Password is required.';
+                isValid = false;
+            }
+
+            // Validate Re-Password
+            if (rePassword === '') {
+                document.getElementById('re-password-error').textContent = 'Re-Password is required.';
+                isValid = false;
+            } else if (password !== rePassword) {
+                document.getElementById('re-password-error').textContent = 'Passwords do not match.';
+                isValid = false;
+            }
+
+            // Validate Gender
+            if (!gender) {
+                document.getElementById('gender-error').textContent = 'Gender is required.';
+                isValid = false;
+            }
+
+            // Validate Phone Number
+            if (phonenumber === '') {
+                document.getElementById('phonenumber-error').textContent = 'Phone Number is required.';
+                isValid = false;
+            }
+
+            // Validate Recovered Email
+            if (recoveredEmail === '') {
+                document.getElementById('recovered-email-error').textContent = 'Recovered Email is required.';
+                isValid = false;
+            }
+
+            // If valid, redirect to dashboard
+            if (isValid) {
+                window.location.href = 'Dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>
