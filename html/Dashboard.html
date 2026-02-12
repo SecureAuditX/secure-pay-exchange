@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinCryptiX Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="DashStyle.css">
+    <link rel="stylesheet" href="/css/DashStyle.css">
     <!--BOOT-STRAP LINKS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -17,14 +17,14 @@
             <div class="logo">FincryptiX</div>
             <ul class="nav">
                 <li class="active"><i class="icon-overview"></i><strong>Overview</strong></li>
-                <li><i class="icon-card"></i><a href="Exchange.html">Exchange</a></li>
-                <li><i class="icon-payment"></i><a href="Payments.html">Payment</a></li>
-                <li><i class="icon-activity"></i><a href="Livechat.html">Support</a></li>
-                <li><i class="icon-setting"></i><a href="Settings.html">Settings</a></li>
-                <li><i class="icon-logout"></i><a href="FinLogin.html">Log out</a></li>
+                <li><i class="icon-card"></i><a href="/html/Exchange.html">Exchange</a></li>
+                <li><i class="icon-payment"></i><a href="/html/Payments.html">Payment</a></li>
+                <li><i class="icon-activity"></i><a href="/html/Livechat.html">Support</a></li>
+                <li><i class="icon-setting"></i><a href="/html/Settings.html">Settings</a></li>
+                <li><i class="icon-logout"></i><a href="/html/FinLogin.html">Log out</a></li>
             </ul>
             <div class="user-profile">
-                <div class="profile-pic"><img src="Userdp.jpg" alt="Profile Picture" /></div>
+                <div class="profile-pic"><img src="/assets/Userdp.jpg" alt="Profile Picture" /></div>
                 <span class="user-name">User-Name</span>
             </div>
         </aside>
@@ -283,7 +283,7 @@ document.getElementById('transferButton').addEventListener('click', function() {
 
 document.getElementById('withdrawButton').addEventListener('click', function() {
     // Redirect to payment page
-    window.location.href = 'Payments.html'; // Update with your payment page URL
+    window.location.href = '/html/Payments.html'; // Update with your payment page URL
 });
 
     </script>
