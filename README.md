@@ -1,9 +1,9 @@
-# Secure-Pay-Exchange
+# Secure-Pay-Exchange (Fintech)
 <!-- HERO IMAGE -->
 <p align="center">
   <img src="/assets/Website-templete.png" alt="Website Banner" />
 </p>
-## FinCryptiX Bank Website
+# FinCryptiX Bank Website
 
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -85,8 +85,7 @@ MIT License
 - Bootstrap for UI components
 - Chart.js for data visualization
 - FontAwesome for icons
-- Images: [Unsplash](https://unsplash.com/) or your own assets
 
 ---
 
-> For questions or support, contact [example@example.com](abdulkarimumar86@gmail.com.com).
+> For questions or support, contact [email@abdulkarimumar](abdulkarimumar86@gmail.com).
