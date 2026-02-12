@@ -1,5 +1,10 @@
 # Secure-Pay-Exchange
+<!-- HERO IMAGE -->
+<p align="center">
+  <img src="/assets/Website-templete.png" alt="Website Banner" />
+</p>
 ## FinCryptiX Bank Website
+
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-blue)
@@ -34,9 +39,11 @@ FinCryptiX is a modern fintech web application for secure payments, currency exc
 - `DashStyle.css`, `FinStyle.css`, `LoginStyle.css` — Custom stylesheets.
 - `README.md` — Project documentation.
 
-## Screenshots
+## Login Page
 
-> _Add screenshots here for Dashboard, Exchange, Payments, etc._
+<p align="center">
+  <img src="/assets/Website-loginPage.png" alt="Login Page" />
+</p>
 
 ## Getting Started
 
