@@ -49,7 +49,7 @@ FinCryptiX is a modern fintech web application for secure payments, currency exc
 
 1. **Clone the repository**  
    ```sh
-   git clone https://github.com/yourusername/fincryptix-bank.git
+   git clone https://github.com/SecureAuditX/fincryptix-bank.git
    cd fincryptix-bank
    ```
 

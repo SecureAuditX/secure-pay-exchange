@@ -1,291 +1,377 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<i>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinCryptiX Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/DashStyle.css">
-    <!--BOOT-STRAP LINKS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | FinCryptiX</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/DashStyle.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
+    <script
+      src="https://kit.fontawesome.com/your-font-awesome-kit-id.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="dashboard-container">
-        <aside class="sidebar">
-            <div class="logo">FincryptiX</div>
-            <ul class="nav">
-                <li class="active"><i class="icon-overview"></i><strong>Overview</strong></li>
-                <li><i class="icon-card"></i><a href="/html/Exchange.html">Exchange</a></li>
-                <li><i class="icon-payment"></i><a href="/html/Payments.html">Payment</a></li>
-                <li><i class="icon-activity"></i><a href="/html/Livechat.html">Support</a></li>
-                <li><i class="icon-setting"></i><a href="/html/Settings.html">Settings</a></li>
-                <li><i class="icon-logout"></i><a href="/html/FinLogin.html">Log out</a></li>
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <a href="/html/Fincryptix.html" class="logo">FinCryptiX</a>
+        <ul class="nav">
+          <li class="active">
+            <a href="#"
+              ><i class="fas fa-th-large"></i> <span>Overview</span></a
+            >
+          </li>
+          <li>
+            <a href="/html/Exchange.html"
+              ><i class="fas fa-exchange-alt"></i> <span>Exchange</span></a
+            >
+          </li>
+          <li>
+            <a href="/html/Payments.html"
+              ><i class="fas fa-wallet"></i> <span>Payments</span></a
+            >
+          </li>
+          <li>
+            <a href="/html/Livechat.html"
+              ><i class="fas fa-comment-alt"></i> <span>Support</span></a
+            >
+          </li>
+          <li>
+            <a href="/html/Settings.html"
+              ><i class="fas fa-cog"></i> <span>Settings</span></a
+            >
+          </li>
+          <li class="logout">
+            <a href="/html/FinLogin.html"
+              ><i class="fas fa-sign-out-alt"></i> <span>Log out</span></a
+            >
+          </li>
+        </ul>
+        <div class="user-profile">
+          <div class="profile-pic">
+            <img src="/assets/Userdp.jpg" alt="Profile" />
+          </div>
+          <div class="user-info">
+            <span class="user-name">Alex Rivera</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="content">
+        <header class="header">
+          <div class="welcome">
+            <h1>Good Morning, Alex!</h1>
+            <p style="color: var(--text-muted)">
+              Here's what's happening with your assets.
+            </p>
+          </div>
+          <div class="search-bar">
+            <i
+              class="fas fa-search"
+              style="
+                position: absolute;
+                left: 1.2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                color: var(--text-muted);
+              "
+            ></i>
+            <input type="text" placeholder="Search transactions..." />
+          </div>
+        </header>
+
+        <!-- 3D Card Showcase -->
+        <div class="card-carousel">
+          <div
+            class="crypto-card"
+            style="
+              background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            "
+          >
+            <div class="card-details">
+              <div class="card-top">
+                <div class="card-type">Corporate USD</div>
+                <div class="card-chip"></div>
+              </div>
+              <div class="card-number">7869 4432 9081 1234</div>
+              <div class="card-bottom">
+                <div class="card-holder">
+                  <p>Holder</p>
+                  <span>ALEX RIVERA</span>
+                </div>
+                <div class="card-expiry">
+                  <p>Expiry</p>
+                  <span>12/28</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="crypto-card"
+            style="
+              background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            "
+          >
+            <div class="card-details">
+              <div class="card-top">
+                <div class="card-type">Bitcoin Wallet</div>
+                <div class="card-chip"></div>
+              </div>
+              <div class="card-number">bc1q 3x9l 20p1 z456</div>
+              <div class="card-bottom">
+                <div class="card-holder">
+                  <p>Network</p>
+                  <span>BTC MAINNET</span>
+                </div>
+                <div class="card-expiry">
+                  <p>Updated</p>
+                  <span>2m ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="crypto-card"
+            style="
+              background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            "
+          >
+            <div class="card-details">
+              <div class="card-top">
+                <div class="card-type">Digital Yuan</div>
+                <div class="card-chip"></div>
+              </div>
+              <div class="card-number">7702 1198 3405 5678</div>
+              <div class="card-bottom">
+                <div class="card-holder">
+                  <p>Province</p>
+                  <span>SHANGHAI</span>
+                </div>
+                <div class="card-expiry">
+                  <p>Status</p>
+                  <span>Verfied</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Widgets Grid -->
+        <div class="grid-container">
+          <!-- Total Balance -->
+          <div class="widget balance">
+            <h3>Total Balance</h3>
+            <h2 id="balanceAmount">$56,138.00</h2>
+            <div class="balance-meta">
+              <i class="fas fa-caret-up"></i>
+              <span>+12.5% this month</span>
+            </div>
+            <button
+              id="withdrawButton"
+              onclick="window.location.href = '/html/Payments.html'"
+            >
+              Quick Withdrawal
+            </button>
+          </div>
+
+          <!-- Earnings Chart -->
+          <div class="widget earnings">
+            <h3>Portfolio Analytics</h3>
+            <canvas id="earningsChart" height="150"></canvas>
+          </div>
+
+          <!-- Latest Transactions -->
+          <div class="widget transactions">
+            <h3>Recent Transactions</h3>
+            <ul id="transactionsList">
+              <!-- Populated by JS -->
             </ul>
-            <div class="user-profile">
-                <div class="profile-pic"><img src="/assets/Userdp.jpg" alt="Profile Picture" /></div>
-                <span class="user-name">User-Name</span>
-            </div>
-        </aside>
-        
+          </div>
 
-        <main class="content">
-            <div class="header">
-                <h1>Good Morning!</h1>
-                <div class="search-bar">
-                    <input type="text" placeholder="Search...">
-                    <i class="icon-search"></i>
-                </div>
-            </div>
+          <!-- Money Flow -->
+          <div class="widget money-flow">
+            <h3>Money Flow</h3>
+            <canvas id="moneyFlowChart"></canvas>
+          </div>
 
-            <div class="card-carousel">
-                <div class="card active" style="background-color: #2962FF;">
-                    <div class="card-details">
-                        <div class="card-type">USD</div>
-                        <div class="card-number">7869 **** **** 1234</div>
-                        <div class="card-expiry">Exp: 12/28</div>
-                    </div>
-                </div>
-                <div class="card" style="background-color: #FFC400;">
-                    <div class="card-details">
-                        <div class="card-type">Bitcoin</div>
-                        <div class="card-number">3559 **** **** 5678</div>
-                        <div class="card-expiry">Exp: 11/30</div>
-                    </div>
-                </div>
-                <div class="card" style="background-color: #00C853;">
-                    <div class="card-details">
-                        <div class="card-type">USDT</div>
-                        <div class="card-number">9087 **** **** 9012</div>
-                        <div class="card-expiry">Exp: 10/27</div>
-                    </div>
-                </div>
-                <div class="card" style="background-color: #D50000;">
-                    <div class="card-details">
-                        <div class="card-type">RMB</div>
-                        <div class="card-number">1609 **** **** 3456</div>
-                        <div class="card-expiry">Exp: 09/34</div>
-                    </div>
-                </div>
+          <!-- Quick Transfer -->
+          <div class="widget quick-transfer">
+            <h3>Quick Transfer</h3>
+            <div style="position: relative; margin-bottom: 1rem">
+              <label>Receiver Wallet</label>
+              <input type="text" value="0x7892...3b12" readonly />
             </div>
-            
+            <div style="position: relative">
+              <label>Amount (USD)</label>
+              <input type="number" id="transferAmount" placeholder="0.00" />
+            </div>
+            <button class="transfer-button" id="transferButton">
+              Continue Transfer
+            </button>
+          </div>
 
-            <div class="grid-container">
-               <!-- Total Balance Widget -->
-<div class="widget balance">
-    <h3>Total Balance</h3>
-    <h2 id="balanceAmount">$56138.00</h2>
-    <p>USD</p>
-    <button id="withdrawButton">Withdraw</button>
-</div>
-                <div class="widget earnings">
-                    <h3>Earnings</h3>
-                    <canvas id="earningsChart"></canvas>
-                </div>
-                <div class="widget financial-record">
-                    <h3>Financial Record</h3>
-                    <div class="record-item">
-                        <span>Total Income</span>
-                        <span>$874.99</span>
-                    </div>
-                    <div class="record-item">
-                        <span>Total Expense</span>
-                        <span>$321.49</span>
-                    </div>
-                    <div class="record-item">
-                        <span>Total Saving</span>
-                        <span>$420.74</span>
-                    </div>
-                </div>
-                <div class="widget transactions">
-                    <h3>Transactions</h3>
-                    <ul id="transactionsList"></ul>
-                </div>
-                <div class="widget money-flow">
-                    <h3>Money Flow</h3>
-                    <canvas id="moneyFlowChart"></canvas>
-                </div>
-                
-                <!-- Quick Transfer Widget -->
-<div class="widget quick-transfer">
-    <h3>Quick Transfer</h3>
-    <input type="text" placeholder="Card Number" value="1234 5678 9012 3456" readonly>
-    <input type="number" id="transferAmount" placeholder="Amount" value="0">
-    <span class="currency">USD</span>
-    <button class="transfer-button" id="transferButton">
-        <i class="icon-send"></i> Transfer
-    </button>
-</div>
+          <!-- Financial Record -->
+          <div class="widget financial-record">
+            <h3>Summary Record</h3>
+            <div class="record-item">
+              <span>Monthly Income</span>
+              <span style="color: #10b981">+$8,474.99</span>
             </div>
-        </main>
+            <div class="record-item">
+              <span>Fixed Expenses</span>
+              <span style="color: #ef4444">-$3,121.49</span>
+            </div>
+            <div class="record-item">
+              <span>Projected Savings</span>
+              <span style="color: var(--primary)">$5,353.50</span>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
 
-   <script>
-        
-   // Wait for the DOM to load
-document.addEventListener('DOMContentLoaded', function () {
-    // Get the canvas context for the bar chart
-    const barCtx = document.getElementById('earningsChart').getContext('2d');
-
-    // Create a new bar chart
-    const earningsChart = new Chart(barCtx, {
-        type: 'bar', // Choose the type of chart (bar, line, pie, etc.)
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June'], // Labels for the x-axis
-            datasets: [{
-                label: 'Earnings ($)',
-                data: [1200, 1900, 3000, 2500, 2800, 3200], // Example data points
-                backgroundColor: 'rgba(75, 192, 192, 0.6)', // Bar color
-                borderColor: 'rgba(75, 192, 192, 1)', // Border color
-                borderWidth: 1
-            }]
-        },
-        options: {
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Portfolio Chart
+        const earningsCtx = document
+          .getElementById("earningsChart")
+          .getContext("2d");
+        new Chart(earningsCtx, {
+          type: "line",
+          data: {
+            labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+            datasets: [
+              {
+                label: "Value",
+                data: [42000, 45000, 44000, 48000, 52000, 51000, 56138],
+                borderColor: "#6366f1",
+                backgroundColor: "rgba(99, 102, 241, 0.1)",
+                fill: true,
+                tension: 0.4,
+                borderWidth: 3,
+                pointRadius: 0,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
             scales: {
-                y: {
-                    beginAtZero: true // Start y-axis at zero
-                }
+              y: { display: false },
+              x: { grid: { display: false }, border: { display: false } },
             },
+          },
+        });
+
+        // Money Flow Chart
+        const flowCtx = document
+          .getElementById("moneyFlowChart")
+          .getContext("2d");
+        new Chart(flowCtx, {
+          type: "doughnut",
+          data: {
+            labels: ["Stocks", "Crypto", "Cash"],
+            datasets: [
+              {
+                data: [45, 35, 20],
+                backgroundColor: ["#6366f1", "#06b6d4", "#f1f5f9"],
+                borderWidth: 0,
+                hoverOffset: 4,
+              },
+            ],
+          },
+          options: {
             responsive: true,
+            cutout: "75%",
             plugins: {
-                legend: {
-                    display: true // Show legend
-                },
-                title: {
-                    display: true,
-                    text: 'Monthly Earnings' // Chart title
-                }
-            }
-        }
-    });
+              legend: {
+                position: "bottom",
+                labels: { usePointStyle: true, padding: 20 },
+              },
+            },
+          },
+        });
 
-    // Get the canvas context for the pie chart
-    const pieCtx = document.getElementById('moneyFlowChart').getContext('2d');
-
-    // Create a new pie chart
-    const moneyFlowChart = new Chart(pieCtx, {
-        type: 'pie', // Choose the type of chart (bar, line, pie, etc.)
-        data: {
-            labels: ['Income', 'Expenses', 'Savings'], // Labels for the pie chart segments
-            datasets: [{
-                label: 'Money Flow Distribution',
-                data: [60, 25, 15], // Example data points representing percentages
-                backgroundColor: [
-                    'rgba(75, 192, 192, 0.6)', // Color for Income
-                    'rgba(255, 99, 132, 0.6)', // Color for Expenses
-                    'rgba(255, 206, 86, 0.6)'  // Color for Savings
-                ],
-                borderColor: [
-                    'rgba(75, 192, 192, 1)', // Border color for Income
-                    'rgba(255, 99, 132, 1)', // Border color for Expenses
-                    'rgba(255, 206, 86, 1)'  // Border color for Savings
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: true // Show legend
-                },
-                title: {
-                    display: true,
-                    text: 'Money Flow Distribution' // Chart title
-                }
-            }
-        }
-    });
-});
-
-    
-    document.addEventListener('DOMContentLoaded', function () {
-        // Sample transactions
+        // Populate Transactions
+        const txList = document.getElementById("transactionsList");
         const transactions = [
-            { date: '2024-01-01', amount: 120, type: 'Deposit' },
-            { date: '2024-01-15', amount: -50, type: 'Withdrawal' },
-            { date: '2024-02-01', amount: 200, type: 'Deposit' },
-            { date: '2024-02-10', amount: -100, type: 'Withdrawal' },
-            { date: '2024-03-01', amount: 150, type: 'Deposit' }
+          {
+            name: "Apple Store",
+            date: "Oct 12, 11:20 AM",
+            amount: -999,
+            icon: "fas fa-laptop",
+          },
+          {
+            name: "Bitcoin Purchase",
+            date: "Oct 11, 04:45 PM",
+            amount: 2500,
+            icon: "fab fa-bitcoin",
+          },
+          {
+            name: "Spotify Premium",
+            date: "Oct 10, 09:00 AM",
+            amount: -14.99,
+            icon: "fas fa-music",
+          },
+          {
+            name: "Salary Deposit",
+            date: "Oct 01, 10:00 AM",
+            amount: 8474,
+            icon: "fas fa-briefcase",
+          },
         ];
 
-        // Populate the transactions list
-        const transactionsList = document.getElementById('transactionsList');
-        transactions.forEach(transaction => {
-            const li = document.createElement('li');
-            li.textContent = `${transaction.date}: $${transaction.amount} (${transaction.type})`;
-            transactionsList.appendChild(li);
+        transactions.forEach((tx) => {
+          const li = document.createElement("li");
+          li.innerHTML = `
+                    <div class="tx-info">
+                        <div class="tx-icon"><i class="${tx.icon}"></i></div>
+                        <div class="tx-details">
+                            <p>${tx.name}</p>
+                            <span>${tx.date}</span>
+                        </div>
+                    </div>
+                    <div class="tx-amount ${tx.amount > 0 ? "deposit" : "withdrawal"}">
+                        <p>${tx.amount > 0 ? "+" : ""}${tx.amount.toLocaleString("en-US", { style: "currency", currency: "USD" })}</p>
+                    </div>
+                `;
+          txList.appendChild(li);
         });
-        transactions.forEach(transaction => {
-    const li = document.createElement('li');
-    const amountSpan = document.createElement('span');
-    
-    amountSpan.textContent = `$${Math.abs(transaction.amount)}`; // Absolute value for display
-    amountSpan.className = transaction.amount > 0 ? 'amount deposit' : 'amount withdrawal'; // Conditional class
-    
-    li.textContent = `${transaction.date}: `;
-    li.appendChild(amountSpan);
-    transactionsList.appendChild(li);
-});
 
-        // Create the money flow chart
-        const ctx = document.getElementById('moneyFlowChart').getContext('2d');
-        const moneyFlowChart = new Chart(ctx, {
-            type: 'line', // Change the type if you want a different chart
-            data: {
-                labels: transactions.map(t => t.date), // X-axis labels
-                datasets: [{
-                    label: 'Money Flow',
-                    data: transactions.map(t => t.amount), // Y-axis data
-                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 2,
-                    fill: false // Don't fill under the line
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                },
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: true
-                    },
-                    title: {
-                        display: true,
-                        text: 'Money Flow Over Time'
-                    }
-                }
+        // Transfer Logic
+        let balance = 56138.0;
+        document
+          .getElementById("transferButton")
+          .addEventListener("click", function () {
+            const input = document.getElementById("transferAmount");
+            const amount = parseFloat(input.value);
+
+            if (amount > 0 && amount <= balance) {
+              balance -= amount;
+              document.getElementById("balanceAmount").innerText =
+                balance.toLocaleString("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                });
+              input.value = "";
+              alert("Transfer Successful!");
+            } else {
+              alert("Please enter a valid amount.");
             }
-        });
-    });
-   
-
-    let totalBalance = 56138.00; // Initial balance
-
-document.getElementById('transferButton').addEventListener('click', function() {
-    const amountInput = document.getElementById('transferAmount');
-    const transferAmount = parseFloat(amountInput.value);
-
-    if (!isNaN(transferAmount) && transferAmount > 0) {
-        totalBalance += transferAmount; // Update total balance
-        document.getElementById('balanceAmount').innerText = `$${totalBalance.toFixed(2)}`; // Update displayed balance
-        alert(`Transferred $${transferAmount.toFixed(2)}. New Balance: $${totalBalance.toFixed(2)}`);
-        amountInput.value = ''; // Clear the input
-    } else {
-        alert('Please enter a valid amount.');
-    }
-});
-
-document.getElementById('withdrawButton').addEventListener('click', function() {
-    // Redirect to payment page
-    window.location.href = '/html/Payments.html'; // Update with your payment page URL
-});
-
+          });
+      });
     </script>
-</body>
+  </body>
 </html>
