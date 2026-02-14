@@ -1,7 +1,7 @@
 # Secure-Pay-Exchange (Fintech)
 <!-- HERO IMAGE -->
 <p align="center">
-  <img src="/assets/Website-templete.png" alt="Website Banner" />
+  <img src="/assets/Website-Banner.png" alt="Website Banner" />
 </p>
 # FinCryptiX Bank Website
 
@@ -42,7 +42,7 @@ FinCryptiX is a modern fintech web application for secure payments, currency exc
 ## Login Page
 
 <p align="center">
-  <img src="/assets/Website-loginPage.png" alt="Login Page" />
+  <img src="/assets/Website-LoginPage.png" alt="Login Page" />
 </p>
 
 ## Getting Started
