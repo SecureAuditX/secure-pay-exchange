@@ -1,129 +1,417 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stylish Exchange Section</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif; /* Set font for the body */
-            background: linear-gradient(to right, #6a11cb, #2575fc); /* Beautiful gradient background */
-            padding: 20px; /* Padding around the body */
-            display: flex; /* Enable flexbox */
-            justify-content: center; /* Center content horizontally */
-            align-items: center; /* Center content vertically */
-            height: 100vh; /* Full viewport height */
-            color: white; /* Text color for body */
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exchange</title>
 
-        .exchange-container {
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-            border-radius: 15px; /* Rounded corners */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow effect */
-            padding: 30px; /* Padding inside the container */
-            width: 100%; /* Full width */
-            max-width: 600px; /* Maximum width for larger screens */
-        }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-        h2 {
-            text-align: center; /* Center the heading */
-            margin-bottom: 20px; /* Space below the heading */
-            color: #333; /* Dark color for the heading */
-        }
+    <link rel="stylesheet" href="/css/DashStyle.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://kit.fontawesome.com/your-font-awesome-kit-id.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <a href="/html/Fincryptix.html" class="logo">FinCryptiX</a>
+        <ul class="nav">
+          <li>
+            <a href="/html/Dashboard.html">
+              <i class="fas fa-th-large"></i>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="#">
+              <i class="fas fa-exchange-alt"></i>
+              <span>Exchange</span>
+            </a>
+          </li>
+          <li>
+            <a href="/html/Payments.html">
+              <i class="fas fa-wallet"></i>
+              <span>Payments</span>
+            </a>
+          </li>
+          <li>
+            <a href="/html/Livechat.html">
+              <i class="fas fa-comment-alt"></i>
+              <span>Support</span>
+            </a>
+          </li>
+          <li>
+            <a href="/html/Settings.html">
+              <i class="fas fa-cog"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
 
-        .form-label {
-            font-weight: bold; /* Bold label text */
-        }
-
-        .mb-4 {
-            margin-bottom: 20px; /* Space between input areas */
-        }
-
-        .btn-exchange {
-            width: 100%; /* Full width for the button */
-            background-color: #007bff; /* Button color */
-            border: none; /* Remove border */
-        }
-
-        .result {
-            margin-top: 20px; /* Space above the result section */
-            text-align: center; /* Center the result text */
-            font-size: 1.2em; /* Increase font size for result */
-            color: #007bff; /* Color for the result text */
-        }
-       
-    </style>
-</head>
-<body>
-
-<!-- Navigation -->
-<ul class="nav">
-    <li><i class="icon-card"></i><a href="#" class="text-white" data-bs-toggle="modal" data-bs-target="#exchangeModal">Exchange</a></li>
-</ul>
-
-<!-- Exchange Section -->
-<div class="exchange-container" id="exchangeSection">
-    <h2>Exchange Money & Cryptocurrency</h2>
-    <form id="exchangeForm">
-        <!-- Amount to Exchange -->
-        <div class="mb-4">
-            <label for="amount" class="form-label">Amount</label>
-            <input type="number" class="form-control" id="amount" placeholder="Enter amount" required>
+        <!-- Upgrade Card -->
+        <div class="upgrade-card">
+          <div class="upgrade-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <div class="upgrade-text">
+            <h4>Go Premium</h4>
+            <p>Unlock all features</p>
+          </div>
+          <a href="#" class="upgrade-btn">Upgrade</a>
         </div>
 
-        <!-- Currency Type Selection -->
-        <div class="mb-4">
-            <label for="currencyType" class="form-label">Currency Type</label>
-            <select class="form-select" id="currencyType" required>
-                <option value="" disabled selected>Select currency type</option>
-                <option value="usd">US Dollar (USD)</option>
-                <option value="btc">Bitcoin (BTC)</option>
-                <option value="rmb">Renminbi (RMB)</option>
-                <option value="usdt">Tether (USDT)</option>
-                <option value="eur">Euro (EUR)</option>
-            </select>
+        <ul class="nav bottom-nav">
+          <li class="logout">
+            <a href="/html/FinLogin.html">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Log out</span>
+            </a>
+          </li>
+        </ul>
+        <div class="user-profile">
+          <div class="profile-pic">
+            <img src="/assets/Userdp.jpg" alt="Profile" />
+          </div>
+          <div class="user-info">
+            <span class="user-name">Alex Rivera</span>
+            <span class="user-role">Premium User</span>
+          </div>
+          <i
+            class="fas fa-chevron-right"
+            style="color: var(--text-muted); font-size: 0.8rem"
+          ></i>
         </div>
+      </aside>
 
-        <!-- Exchange Button -->
-        <button type="submit" class="btn btn-exchange">Exchange</button>
-    </form>
+      <!-- Main Content -->
+      <main class="content">
+        <header class="header">
+          <div class="welcome">
+            <h1>Exchange</h1>
+            <p style="color: var(--text-muted)">
+              Live rates and instant currency swaps.
+            </p>
+          </div>
+          <div class="search-bar">
+            <i
+              class="fas fa-search"
+              style="
+                position: absolute;
+                left: 1.2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                color: var(--text-muted);
+              "
+            ></i>
+            <input type="text" placeholder="Search currencies..." />
+          </div>
+        </header>
 
-    <!-- Result Display -->
-    <div class="result" id="result"></div>
-</div>
+        <!-- Exchange Layout -->
+        <div class="grid-container exchange-grid">
+          <!-- Swap Widget -->
+          <div class="widget swap-widget">
+            <h3>Quick Swap</h3>
+            <form id="exchangeForm" onsubmit="event.preventDefault()">
+              <div class="swap-input-group">
+                <label>You Pay</label>
+                <div class="input-wrapper">
+                  <input
+                    type="number"
+                    id="payAmount"
+                    placeholder="0.00"
+                    value="1000"
+                  />
+                  <select class="currency-select" id="payCurrency">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="BTC">BTC</option>
+                  </select>
+                </div>
+              </div>
 
-<!-- JavaScript includes for Bootstrap functionality -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+              <div class="swap-divider">
+                <i class="fas fa-exchange-alt"></i>
+              </div>
 
-<script>
-    // JavaScript to handle form submission and display results
-    document.getElementById('exchangeForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
+              <div class="swap-input-group">
+                <label>You Receive</label>
+                <div class="input-wrapper">
+                  <input
+                    type="number"
+                    id="receiveAmount"
+                    placeholder="0.00"
+                    readonly
+                  />
+                  <select class="currency-select" id="receiveCurrency">
+                    <option value="BTC" selected>BTC</option>
+                    <option value="ETH">ETH</option>
+                    <option value="USD">USD</option>
+                  </select>
+                </div>
+              </div>
 
-        const amount = document.getElementById('amount').value;
-        const currencyType = document.getElementById('currencyType').value;
+              <div class="rate-info">
+                <span>1 USD = 0.000025 BTC</span>
+                <span style="color: var(--primary)">access fees: 0.5%</span>
+              </div>
 
-        // Simple exchange logic (for demonstration purposes)
-        let exchangeRate = 1; // Default rate
-        if (currencyType === 'eur') {
-            exchangeRate = 0.85; // Example rate for Euro
-        } else if (currencyType === 'btc') {
-            exchangeRate = 0.000025; // Example rate for Bitcoin
-        } else if (currencyType === 'rmb') {
-            exchangeRate = 6.5; // Example rate for Renminbi
-        } else if (currencyType === 'usdt') {
-            exchangeRate = 1; // Example rate for USDT
+              <button
+                class="transfer-button"
+                id="exchangeBtn"
+                style="margin-top: 1.5rem"
+              >
+                Confirm Swap
+              </button>
+            </form>
+          </div>
+
+          <!-- Market Chart -->
+          <div class="widget chart-widget">
+            <div class="chart-header">
+              <h3>BTC / USD</h3>
+              <div class="chart-period">
+                <span class="active">1H</span>
+                <span>1D</span>
+                <span>1W</span>
+                <span>1M</span>
+                <span>1Y</span>
+              </div>
+            </div>
+            <canvas id="marketChart"></canvas>
+          </div>
+
+          <!-- Live Rates -->
+          <div class="widget rates-widget">
+            <h3>Live Market Rates</h3>
+            <ul class="rates-list">
+              <li>
+                <div class="currency-pair">
+                  <i class="fab fa-bitcoin" style="color: #f59e0b"></i>
+                  <div>
+                    <h4>BTC / USD</h4>
+                    <span>Bitcoin</span>
+                  </div>
+                </div>
+                <div class="rate-value up">
+                  <h4>$43,240.50</h4>
+                  <span>+2.4%</span>
+                </div>
+              </li>
+              <li>
+                <div class="currency-pair">
+                  <i class="fab fa-ethereum" style="color: #6366f1"></i>
+                  <div>
+                    <h4>ETH / USD</h4>
+                    <span>Ethereum</span>
+                  </div>
+                </div>
+                <div class="rate-value down">
+                  <h4>$2,240.10</h4>
+                  <span>-0.8%</span>
+                </div>
+              </li>
+              <li>
+                <div class="currency-pair">
+                  <div class="fiat-icon">€</div>
+                  <div>
+                    <h4>EUR / USD</h4>
+                    <span>Euro</span>
+                  </div>
+                </div>
+                <div class="rate-value up">
+                  <h4>$1.08</h4>
+                  <span>+0.12%</span>
+                </div>
+              </li>
+              <li>
+                <div class="currency-pair">
+                  <div class="fiat-icon">¥</div>
+                  <div>
+                    <h4>JPY / USD</h4>
+                    <span>Yen</span>
+                  </div>
+                </div>
+                <div class="rate-value down">
+                  <h4>$0.0067</h4>
+                  <span>-0.45%</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- Market Chart ---
+        const ctx = document.getElementById("marketChart").getContext("2d");
+        new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00"],
+            datasets: [
+              {
+                label: "BTC Price",
+                data: [42800, 43100, 42900, 43500, 43200, 43240],
+                borderColor: "#f59e0b",
+                backgroundColor: "rgba(245, 158, 11, 0.1)",
+                fill: true,
+                tension: 0.4,
+                borderWidth: 2,
+                pointRadius: 0,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              y: { display: true, grid: { color: "rgba(0,0,0,0.05)" } },
+              x: { grid: { display: false } },
+            },
+          },
+        });
+
+        // --- Exchange Logic ---
+
+        // Mock Rates (Relative to USD)
+        const rates = {
+          USD: 1,
+          EUR: 0.92,
+          GBP: 0.79,
+          BTC: 0.000023,
+          ETH: 0.00038,
+          JPY: 150.2,
+        };
+
+        const payInput = document.getElementById("payAmount");
+        const receiveInput = document.getElementById("receiveAmount");
+        const payCurrencySelect = document.getElementById("payCurrency");
+        const receiveCurrencySelect =
+          document.getElementById("receiveCurrency");
+        const exchangeBtn = document.getElementById("exchangeBtn");
+
+        function updateSwap() {
+          const payVal = parseFloat(payInput.value);
+          const payCurr = payCurrencySelect.value;
+          const receiveCurr = receiveCurrencySelect.value;
+
+          if (!payVal) {
+            receiveInput.value = "";
+            return;
+          }
+
+          // Calculation: (Amount / PayRate) * ReceiveRate
+          // But rates above are Amount per 1 USD? No, usually rates are 1 USD = X Currency.
+          // Let's assume rates are: 1 USD = 0.92 EUR.
+          // So to go EUR -> USD: Amount / 0.92
+          // To go USD -> BTC: Amount * 0.000023
+
+          // Convert Pay Amount to USD Base
+          let usdBase = payVal;
+          if (payCurr !== "USD") {
+            usdBase = payVal / rates[payCurr];
+          }
+
+          // Convert USD Base to Receive Currency
+          let finalAmount = usdBase * rates[receiveCurr];
+
+          // Format constraint logic
+          if (receiveCurr === "BTC" || receiveCurr === "ETH") {
+            receiveInput.value = finalAmount.toFixed(6);
+          } else {
+            receiveInput.value = finalAmount.toFixed(2);
+          }
         }
 
-        // Calculate exchanged amount
-        const exchangedAmount = (amount * exchangeRate).toFixed(2);
-        
-        // Display result
-        document.getElementById('result').innerText = `You will receive: ${exchangedAmount} ${currencyType.toUpperCase()}`;
-    });
-</script>
+        payInput.addEventListener("input", updateSwap);
+        payCurrencySelect.addEventListener("change", updateSwap);
+        receiveCurrencySelect.addEventListener("change", updateSwap);
 
-</body>
+        // Initialize
+        updateSwap();
+
+        // Handle Confirm Swap
+        exchangeBtn.addEventListener("click", function () {
+          const amountPaid = parseFloat(payInput.value);
+          const currencyPaid = payCurrencySelect.value;
+          const amountReceived = parseFloat(receiveInput.value);
+          const currencyReceived = receiveCurrencySelect.value;
+
+          if (!amountPaid || amountPaid <= 0) {
+            alert("Please enter a valid amount to swap.");
+            return;
+          }
+
+          // 1. Get existing data or init
+          let portfolio = JSON.parse(localStorage.getItem("finPortfolio")) || {
+            USD: 56138.0,
+            BTC: 0,
+            ETH: 0,
+            EUR: 0,
+          };
+
+          // 2. Validate Balance (Simulated: allow if enough source, or just allow for demo)
+          // Ideally we check portfolio[currencyPaid] >= amountPaid.
+          // For now, let's assume the user has infinite 'USD' for demo, but track others.
+
+          // Deduct
+          if (!portfolio[currencyPaid]) portfolio[currencyPaid] = 0;
+          // portfolio[currencyPaid] -= amountPaid; // Uncomment for strict checking
+
+          // Add
+          if (!portfolio[currencyReceived]) portfolio[currencyReceived] = 0;
+          portfolio[currencyReceived] += amountReceived;
+
+          // Save Portfolio
+          localStorage.setItem("finPortfolio", JSON.stringify(portfolio));
+
+          // 3. Add to Transaction History
+          let transactions =
+            JSON.parse(localStorage.getItem("finTransactions")) || [];
+
+          const newTx = {
+            name: `Exch ${currencyPaid} to ${currencyReceived}`,
+            date: new Date().toLocaleString("en-US", {
+              month: "short",
+              day: "numeric",
+              hour: "numeric",
+              minute: "numeric",
+              hour12: true,
+            }),
+            amount: amountReceived, // We show the positive gain
+            currency: currencyReceived,
+            icon: "fas fa-exchange-alt",
+          };
+
+          // Add to top
+          transactions.unshift(newTx);
+          // Limit to 10
+          if (transactions.length > 20) transactions.pop();
+
+          localStorage.setItem("finTransactions", JSON.stringify(transactions));
+
+          // 4. Alert and Redirect
+          alert(
+            `Successfully swapped ${amountPaid} ${currencyPaid} to ${amountReceived} ${currencyReceived}!`,
+          );
+          window.location.href = "/html/Dashboard.html";
+        });
+      });
+    </script>
+  </body>
 </html>
