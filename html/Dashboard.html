@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard | FinCryptiX</title>
+    <title>Dashboard</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -118,75 +118,75 @@
         </header>
 
         <!-- 3D Card Showcase -->
+        <!-- 3D Card Showcase -->
         <div class="card-carousel">
-          <div
-            class="crypto-card"
-            style="
-              background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            "
-          >
+          <!-- Card 1: Visa Infinite -->
+          <div class="crypto-card card-visa">
             <div class="card-details">
               <div class="card-top">
-                <div class="card-type">Corporate USD</div>
+                <div class="card-type">
+                  <i class="fas fa-infinity card-logo-icon"></i>
+                  <span>INFINITE</span>
+                </div>
                 <div class="card-chip"></div>
               </div>
-              <div class="card-number">7869 4432 9081 1234</div>
+              <div class="card-number">4920 1822 5901 3465</div>
               <div class="card-bottom">
                 <div class="card-holder">
-                  <p>Holder</p>
-                  <span>ALEX RIVERA</span>
+                  <span class="card-label">Card Holder</span>
+                  <div class="card-value">ALEX RIVERA</div>
                 </div>
                 <div class="card-expiry">
-                  <p>Expiry</p>
-                  <span>12/28</span>
+                  <span class="card-label">Expires</span>
+                  <div class="card-value">09/28</div>
                 </div>
               </div>
             </div>
           </div>
-          <div
-            class="crypto-card"
-            style="
-              background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            "
-          >
+
+          <!-- Card 2: Bitcoin -->
+          <div class="crypto-card card-btc">
             <div class="card-details">
               <div class="card-top">
-                <div class="card-type">Bitcoin Wallet</div>
+                <div class="card-type">
+                  <i class="fab fa-bitcoin card-logo-icon"></i>
+                  <span>BITCOIN</span>
+                </div>
                 <div class="card-chip"></div>
               </div>
               <div class="card-number">bc1q 3x9l 20p1 z456</div>
               <div class="card-bottom">
                 <div class="card-holder">
-                  <p>Network</p>
-                  <span>BTC MAINNET</span>
+                  <span class="card-label">Balance</span>
+                  <div class="card-value" id="cardBtcBalance">0.00 BTC</div>
                 </div>
                 <div class="card-expiry">
-                  <p>Updated</p>
-                  <span>2m ago</span>
+                  <span class="card-label">Network</span>
+                  <div class="card-value">MAINNET</div>
                 </div>
               </div>
             </div>
           </div>
-          <div
-            class="crypto-card"
-            style="
-              background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            "
-          >
+
+          <!-- Card 3: Ethereum -->
+          <div class="crypto-card card-eth">
             <div class="card-details">
               <div class="card-top">
-                <div class="card-type">Digital Yuan</div>
+                <div class="card-type">
+                  <i class="fab fa-ethereum card-logo-icon"></i>
+                  <span>ETHEREUM</span>
+                </div>
                 <div class="card-chip"></div>
               </div>
-              <div class="card-number">7702 1198 3405 5678</div>
+              <div class="card-number">0x71C...92F1</div>
               <div class="card-bottom">
                 <div class="card-holder">
-                  <p>Province</p>
-                  <span>SHANGHAI</span>
+                  <span class="card-label">Balance</span>
+                  <div class="card-value" id="cardEthBalance">0.00 ETH</div>
                 </div>
                 <div class="card-expiry">
-                  <p>Status</p>
-                  <span>Verfied</span>
+                  <span class="card-label">Gas</span>
+                  <div class="card-value">12 GWEI</div>
                 </div>
               </div>
             </div>
@@ -269,7 +269,109 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Portfolio Chart
+        // --- 1. Portfolio Data Management ---
+        const defaultPortfolio = { USD: 56138.0, BTC: 0.45, ETH: 2.1, EUR: 0 };
+        let portfolio = JSON.parse(localStorage.getItem("finPortfolio"));
+
+        if (!portfolio) {
+          portfolio = defaultPortfolio;
+          localStorage.setItem("finPortfolio", JSON.stringify(portfolio));
+        }
+
+        // Mock Rates for View-Only Calculation
+        const rates = {
+          USD: 1,
+          EUR: 1.08,
+          BTC: 43240.5,
+          ETH: 2240.1,
+        };
+
+        // Calculate Total Balance in USD
+        let totalBalanceUSD = 0;
+        for (let [currency, amount] of Object.entries(portfolio)) {
+          let rate = rates[currency] || 0;
+          if (currency === "USD") rate = 1;
+          totalBalanceUSD += amount * rate;
+        }
+
+        // Update UI: Total Balance
+        document.getElementById("balanceAmount").innerText =
+          totalBalanceUSD.toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+          });
+
+        // Update UI: Crypto Cards
+        const btcEl = document.getElementById("cardBtcBalance");
+        if (btcEl)
+          btcEl.innerText = (portfolio["BTC"] || 0).toFixed(4) + " BTC";
+
+        const ethEl = document.getElementById("cardEthBalance");
+        if (ethEl)
+          ethEl.innerText = (portfolio["ETH"] || 0).toFixed(4) + " ETH";
+
+        // --- 2. Transaction History Management ---
+        const defaultTransactions = [
+          {
+            name: "Apple Store",
+            date: "Oct 12, 11:20 AM",
+            amount: -999,
+            icon: "fas fa-laptop",
+            currency: "USD",
+          },
+          {
+            name: "Bitcoin Purchase",
+            date: "Oct 11, 04:45 PM",
+            amount: 2500,
+            icon: "fab fa-bitcoin",
+            currency: "USD",
+          },
+          {
+            name: "Spotify Premium",
+            date: "Oct 10, 09:00 AM",
+            amount: -14.99,
+            icon: "fas fa-music",
+            currency: "USD",
+          },
+          {
+            name: "Salary Deposit",
+            date: "Oct 01, 10:00 AM",
+            amount: 8474,
+            icon: "fas fa-briefcase",
+            currency: "USD",
+          },
+        ];
+
+        let transactions = JSON.parse(localStorage.getItem("finTransactions"));
+        if (!transactions) {
+          transactions = defaultTransactions;
+          localStorage.setItem("finTransactions", JSON.stringify(transactions));
+        }
+
+        const txList = document.getElementById("transactionsList");
+        txList.innerHTML = "";
+
+        transactions.forEach((tx) => {
+          const li = document.createElement("li");
+          const isPositive = tx.amount > 0;
+          const amtClass = isPositive ? "deposit" : "withdrawal";
+
+          li.innerHTML = `
+                <div class="tx-info">
+                    <div class="tx-icon"><i class="${tx.icon}"></i></div>
+                    <div class="tx-details">
+                        <p>${tx.name}</p>
+                        <span>${tx.date}</span>
+                    </div>
+                </div>
+                <div class="tx-amount ${amtClass}">
+                    <p>${isPositive ? "+" : ""}${tx.amount.toLocaleString("en-US", { style: "currency", currency: "USD" })}</p>
+                </div>
+          `;
+          txList.appendChild(li);
+        });
+
+        // --- 3. Charts ---
         const earningsCtx = document
           .getElementById("earningsChart")
           .getContext("2d");
@@ -280,7 +382,15 @@
             datasets: [
               {
                 label: "Value",
-                data: [42000, 45000, 44000, 48000, 52000, 51000, 56138],
+                data: [
+                  42000,
+                  45000,
+                  44000,
+                  48000,
+                  52000,
+                  51000,
+                  totalBalanceUSD,
+                ],
                 borderColor: "#6366f1",
                 backgroundColor: "rgba(99, 102, 241, 0.1)",
                 fill: true,
@@ -301,7 +411,6 @@
           },
         });
 
-        // Money Flow Chart
         const flowCtx = document
           .getElementById("moneyFlowChart")
           .getContext("2d");
@@ -330,71 +439,49 @@
           },
         });
 
-        // Populate Transactions
-        const txList = document.getElementById("transactionsList");
-        const transactions = [
-          {
-            name: "Apple Store",
-            date: "Oct 12, 11:20 AM",
-            amount: -999,
-            icon: "fas fa-laptop",
-          },
-          {
-            name: "Bitcoin Purchase",
-            date: "Oct 11, 04:45 PM",
-            amount: 2500,
-            icon: "fab fa-bitcoin",
-          },
-          {
-            name: "Spotify Premium",
-            date: "Oct 10, 09:00 AM",
-            amount: -14.99,
-            icon: "fas fa-music",
-          },
-          {
-            name: "Salary Deposit",
-            date: "Oct 01, 10:00 AM",
-            amount: 8474,
-            icon: "fas fa-briefcase",
-          },
-        ];
-
-        transactions.forEach((tx) => {
-          const li = document.createElement("li");
-          li.innerHTML = `
-                    <div class="tx-info">
-                        <div class="tx-icon"><i class="${tx.icon}"></i></div>
-                        <div class="tx-details">
-                            <p>${tx.name}</p>
-                            <span>${tx.date}</span>
-                        </div>
-                    </div>
-                    <div class="tx-amount ${tx.amount > 0 ? "deposit" : "withdrawal"}">
-                        <p>${tx.amount > 0 ? "+" : ""}${tx.amount.toLocaleString("en-US", { style: "currency", currency: "USD" })}</p>
-                    </div>
-                `;
-          txList.appendChild(li);
-        });
-
-        // Transfer Logic
-        let balance = 56138.0;
+        // --- 4. Wallet Transfer Logic ---
         document
           .getElementById("transferButton")
           .addEventListener("click", function () {
             const input = document.getElementById("transferAmount");
             const amount = parseFloat(input.value);
+            let currentUsd = portfolio["USD"] || 0;
 
-            if (amount > 0 && amount <= balance) {
-              balance -= amount;
-              document.getElementById("balanceAmount").innerText =
-                balance.toLocaleString("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                });
+            if (amount > 0 && amount <= currentUsd) {
+              portfolio["USD"] -= amount;
+              localStorage.setItem("finPortfolio", JSON.stringify(portfolio));
+
+              const newTx = {
+                name: "Quick Transfer",
+                date: new Date().toLocaleString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  hour: "numeric",
+                  minute: "numeric",
+                  hour12: true,
+                }),
+                amount: -amount,
+                icon: "fas fa-paper-plane",
+                currency: "USD",
+              };
+              transactions.unshift(newTx);
+              localStorage.setItem(
+                "finTransactions",
+                JSON.stringify(transactions),
+              );
+
+              document.getElementById("balanceAmount").innerText = (
+                totalBalanceUSD - amount
+              ).toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD",
+              });
+
               input.value = "";
               alert("Transfer Successful!");
+              location.reload();
             } else {
-              alert("Please enter a valid amount.");
+              alert("Insufficient funds or invalid amount.");
             }
           });
       });
